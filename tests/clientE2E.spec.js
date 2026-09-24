@@ -1,26 +1,14 @@
 const {test, expect} = require('@playwright/test');
 
-test.only('Client Register', async ({page}) => {
+test ('Client login', async ({page}) => {
     await page.goto('https://rahulshettyacademy.com/client');
 
     const userName='akash4566122134@gmail.com'
-    await page.locator('[routerlink="/auth/register"]').click();
+    const passWord = 'Password@123'
     console.log(await page.locator('.login-title').textContent());
-    await page.locator('#firstName').fill('John');
-    await page.locator('#lastName').fill('Doe');
-    await page.locator('[placeholder="email@example.com"]').fill(userName);
-    await page.locator('#userMobile').fill('1234567890');
-    await page.locator('[formcontrolname="occupation"]').selectOption('Engineer');
-    await page.locator("input[value='Male']").check();
-    await page.locator('#userPassword').fill('Password@123');
-    await page.locator('#confirmPassword').fill('Password@123');
-    await page.locator("[formcontrolname='required']").check();
-    await page.locator('#login').click();
-
-
-    await page.locator("[routerlink='/auth']").click();
+   
     await page.locator('#userEmail').fill(userName);
-    await page.locator('#userPassword').fill('Password@123');
+    await page.locator('#userPassword').fill(passWord);
     await page.locator('#login').click();
    // await expect(page.locator('.card-body b').nth(0)).toContainText('ADIDAS ORIGINAL');
     //console.log(await page.locator('.card-body b').nth(1).textContent());
@@ -87,12 +75,19 @@ const orderitem=page.locator('tr.ng-star-inserted ')
 const ordercount = orderitem.count()
 for (let i=0;i<ordercount;++i)
 {
-    orderitem.locator("th").nth(i)===orderid;
-    break;
-
+   if( orderitem.locator("th").nth(i).textContent()===orderid)
+   {
+    await orderitem.locator("text='View'").nth(i).click();
+    page.pause();
+     break;
+   }
+   
+ await expect(page.locator('div.col-text ')).toContainText(orderid)
 
 }
-await orderitem.locator("text='View'").click();
+
+});
+
 
 
 
@@ -112,4 +107,3 @@ await orderitem.locator("text='View'").click();
 
 
 
-})
