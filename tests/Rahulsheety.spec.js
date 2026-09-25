@@ -29,7 +29,7 @@ test('Rahul Sheety test', async ({page}) => {
     await userName.fill('')
     await userName.fill('rahulshettyacademy');
    await page.locator("span[class='checkmark']").nth(1).check();
-    await page.locator('[id="okayBtn"]').click();
+    await page.locator('#okayBtn').click();
     await dropdown.selectOption('consult');
     //assertion
     // await page.pause();

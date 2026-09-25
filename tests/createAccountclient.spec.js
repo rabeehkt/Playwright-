@@ -4,7 +4,7 @@
  test('Client Register', async ({page}) => {
     await page.goto('https://rahulshettyacademy.com/client');
 
-    const userName='akash4566122134@gmail.com'
+    const userName='akash45661342412332134@gmail.com'
     await page.locator('[routerlink="/auth/register"]').click();
     console.log(await page.locator('.login-title').textContent());
     await page.locator('#firstName').fill('John');

@@ -80,7 +80,7 @@ await coupon.fill('rahulshettyacademy');
 
 await page.locator("[type*='submit']").click();
 await coupon.waitFor()
-await expect(page.locator("[style*='green']")).toContainText('* Coupon Applied');
+await expect(page.locator("[style*='green']")).toContainText('Coupon Applied');
 //await page.locator(".action__submit").click()
 await page.getByText("Place Order").click()
 const messages=await page.locator('.hero-primary');
