@@ -34,7 +34,7 @@ export default defineConfig({
     navigationTimeout: 30* 1000,
 
     browserName: 'chromium',
-    headless: false,
+    headless: true,
     screenshot:'on',
   
 
