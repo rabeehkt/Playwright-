@@ -15,6 +15,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   timeout: 30 * 1000,
+
   expect: {
     timeout: 5000
   },
@@ -36,6 +37,7 @@ export default defineConfig({
     browserName: 'chromium',
     headless: true,
     screenshot:'on',
+    video:'retain-on-failure',
   
 
     /* Base URL to use in actions like `await page.goto('')`. */

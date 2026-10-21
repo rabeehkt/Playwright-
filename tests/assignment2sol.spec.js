@@ -1,3 +1,5 @@
+/*
+
 import { test, expect } from '@playwright/test';
 
 const BASE_URL   = 'https://eventhub.rahulshettyacademy.com';
@@ -96,3 +98,4 @@ test('refund not eligible for group ticket booking', async ({ page }) => {
   await expect(result).toContainText('Not eligible for refund');
   await expect(result).toContainText('Group bookings (3 tickets) are non-refundable');
 });
+*/

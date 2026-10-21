@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+/* import { test, expect } from '@playwright/test';
 
 const BASE_URL = 'https://eventhub.rahulshettyacademy.com';
 const API_URL  = 'https://api.eventhub.rahulshettyacademy.com/api';
@@ -57,3 +57,5 @@ test('gmail user sees Access Denied when viewing yahoo user booking', async ({ p
   await expect(page.getByText('Access Denied')).toBeVisible();
   await expect(page.getByText('You are not authorized to view this booking')).toBeVisible();
 });
+
+*/

@@ -24,12 +24,65 @@ test('test', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'iphone X' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Samsung Note' })).toBeVisible();
   await page.getByRole('button', { name: 'Checkout' }).click();
-  await page.getByRole('textbox', { name: 'Please choose your delivery' }).click();
-  await page.getByRole('textbox', { name: 'Please choose your delivery' }).fill('india');
-  await page.getByText('I agree with the term &').click();
-  await page.getByRole('checkbox', { name: 'I agree with the term &' }).check();
-  await expect(page.getByRole('textbox', { name: 'Please choose your delivery' })).toHaveValue('india');
-  await expect(page.locator('app-checkout')).toContainText('Please choose your delivery location. Then click on purchase button');
-  await page.getByRole('button', { name: 'Purchase' }).click();
-  await expect(page.getByText('× Success! Thank you! Your')).toBeVisible();
+  const deliveryLocation = page.getByRole('textbox', {
+  name: 'Please choose your delivery'
+});
+
+// Enter delivery location
+await deliveryLocation.fill('india');
+//await page.locator('.suggestion').waitFor()
+//await page.locator('.suggestion').click()
+
+// Locate checkbox
+const checkbox = page.locator('#checkbox2');
+
+// Click the checkbox label
+await page.locator('label[for="checkbox2"]').click();
+
+// Verify checkbox is checked
+await expect(checkbox).toBeChecked();
+
+// Handle Terms and Conditions modal if it opens
+const modal = page.getByRole('heading', {
+  name: 'Terms And Conditions'
+});
+
+if (await modal.isVisible()) {
+  await page.getByRole('button', {
+    name: 'Close'
+  }).last().click();
+}
+
+// Verify modal overlay is not blocking the page
+await expect(
+  page.locator('.nsm-overlay-open')
+).toBeHidden();
+
+// Verify delivery location
+await expect(deliveryLocation).toHaveValue('india');
+
+// Complete purchase
+await page.getByRole('button', {
+  name: 'Purchase'
+}).click();
+
+// Verify purchase success
+await expect(
+  page.getByText('Success! Thank you!', { exact: false })
+).toBeVisible();
+// Verify delivery location
+await expect(deliveryLocation).toHaveValue('india');
+
+// Verify checkout instructions
+await expect(page.locator('app-checkout')).toContainText(
+  'Please choose your delivery location. Then click on purchase button'
+);
+
+// Complete purchase
+await page.getByRole('button', { name: 'Purchase' }).click();
+
+// Verify purchase success
+await expect(
+  page.getByText('Success! Thank you!', { exact: false })
+).toBeVisible();
 });

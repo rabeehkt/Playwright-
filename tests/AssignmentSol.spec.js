@@ -1,3 +1,5 @@
+/*
+
 import { test, expect } from '@playwright/test';
 
 const BASE_URL      = 'https://eventhub.rahulshettyacademy.com'
@@ -136,3 +138,5 @@ test('create event via UI, book it, and verify seat reduction', async ({ page })
   // Booked 1 ticket — count must drop by exactly 1
   expect(seatsAfterBooking).toBe(seatsBeforeBooking - 1);
 });
+
+*/

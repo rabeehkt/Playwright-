@@ -2,11 +2,12 @@ const {test, expect} = require('@playwright/test');
 
 test('Client Register', async ({page}) => {
     await page.goto('https://rahulshettyacademy.com/client');
+    const username = `TestUser${Date.now()}@gmail.com`;
     await page.locator('[routerlink="/auth/register"]').click();
     console.log(await page.locator('.login-title').textContent());
     await page.locator('#firstName').fill('John');
     await page.locator('#lastName').fill('Doe');
-    await page.locator('[placeholder="email@example.com"]').fill('akash11124344419@gmail.com');
+    await page.locator('[placeholder="email@example.com"]').fill(username);
     await page.locator('#userMobile').fill('1234567890');
     await page.locator('[formcontrolname="occupation"]').selectOption('Engineer');
     await page.locator("input[value='Male']").check();
@@ -17,7 +18,7 @@ test('Client Register', async ({page}) => {
 
 
     await page.locator("[routerlink='/auth']").click();
-    await page.locator('#userEmail').fill('akash11124344419@gmail.com');
+    await page.locator('#userEmail').fill(username);
     await page.locator('#userPassword').fill('Password@123');
     await page.locator('#login').click();
    // await expect(page.locator('.card-body b').nth(0)).toContainText('ADIDAS ORIGINAL');

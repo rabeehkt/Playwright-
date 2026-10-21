@@ -12,7 +12,7 @@ constructor(page)
 }
 async buyNow(productname)
 {
- await this.divfield.first().waitFor();
+ //await this.divfield.first().waitFor();
   await expect(this.productNamefield.getByText(productname)).toBeVisible();
   await this.buynow.click();
 }

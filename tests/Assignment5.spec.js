@@ -1,6 +1,6 @@
 const {test,expect,request} =require('@playwright/test');
 
-const {  basictest } = require('./utils/Eventhub.js');
+const {  basictest } = require('../utils/Eventhub.js');
 
 
 basictest('Create booking through API', async ({

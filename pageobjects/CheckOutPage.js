@@ -23,11 +23,11 @@ this.orderid= page.locator('label.ng-star-inserted');
    
 
 }
-async CheckoutFieldUpdate(userName)
+async CheckoutFieldUpdate(userName,country)
 {
   await expect(this.userNamefield).toHaveText(userName);
     //await expect(page.locator('input.ng-untouched').first()).toHaveValue(userName);
-    await this.country.pressSequentially("ind", { delay: 150 });
+    await this.country.pressSequentially(country, { delay: 150 });
     
     await this.options.first().waitFor();
     const optionCount = await this.options.count();
