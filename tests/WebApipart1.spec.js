@@ -23,11 +23,7 @@ test.beforeAll( async({browser})=>
    context = await browser.newContext();
   const page = await context.newPage();
  
-  // START tracing (manual)
-  await context.tracing.start({
-    screenshots: true,
-    snapshots: true
-  });
+
 const apiContext = await request.newContext();
 const apiutils = new APIUtils(apiContext,LoginPayload);
 response = await apiutils.createOrder(OrderPayload);
@@ -36,10 +32,7 @@ response = await apiutils.createOrder(OrderPayload);
 
 });
 
-test.afterAll(async () => {
-  await context.tracing.stop({ path: 'trace.zip' });
-  await context.close();
-});
+
 
 
 
