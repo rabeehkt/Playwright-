@@ -1,0 +1,22 @@
+API Status: 201
+Event Response: {
+  success: true,
+  data: {
+    id: 23137,
+    title: 'Tech Summit 2026',
+    description: 'A premier technology conference.',
+    category: 'Conference',
+    venue: 'Bangalore International Centre',
+    city: 'Bangalore',
+    eventDate: '2026-12-15T09:00:00.000Z',
+    price: '1500',
+    totalSeats: 500,
+    availableSeats: 500,
+    imageUrl: 'https://example.com/banner.jpg',
+    isStatic: false,
+    userId: 6941,
+    createdAt: '2026-10-21T09:10:51.715Z',
+    updatedAt: '2026-10-22T07:08:06.677Z'
+  },
+  message: 'Event created successfully'
+}

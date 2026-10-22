@@ -2,15 +2,15 @@
   "name": "rahuludemy",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@playwright/test": "^1.63.0",
-    "@types/node": "^26.5.1"
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.5.1",
+    "allure-commandline": "^2.46.1",
+    "allure-playwright": "^3.14.0"
   }
 }
